@@ -244,6 +244,7 @@
 
     color: inherit;
 
+    transition-property: color;
     transition-duration: .3s;
 
     &::after {
@@ -258,6 +259,7 @@
       background-color: $c-light;
       opacity: 0;
 
+      transition-property: opacity, color, width;
       transition-duration: .3s;
 
       @media (max-width: $tablet) and (orientation: portrait) {
