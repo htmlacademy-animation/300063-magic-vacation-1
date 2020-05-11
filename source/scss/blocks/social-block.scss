@@ -3,12 +3,12 @@
 
   &:hover {
     .social-block__list {
-      opacity: 1;
       pointer-events: auto;
+    }
 
-      li {
-        transform: translateY(0);
-      }
+    .social-block__link {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
@@ -108,11 +108,7 @@
 
   margin-top: 1.5rem;
 
-  opacity: 0;
   pointer-events: none;
-
-  transition-property: opacity;
-  transition-duration: .3s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -171,19 +167,9 @@
     pointer-events: auto;
   }
 
-  @for $i from 1 through 5 {
-    li:nth-of-type(#{$i}) {
-      transform: translateY(#{-10px * $i});
-
-      transition-delay: 40ms* ($i - 1);
-    }
-  }
-
   li {
     flex: none;
     margin-bottom: 0.5rem;
-
-    transition-duration: .3s;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -210,9 +196,12 @@
 
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
 
-  transition-property: color;
-  transition-duration: .3s;
+  transform: translateY(10px);
+
+  transition-property: color, transform, opacity;
+  transition-duration: 300ms;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -256,6 +245,8 @@
   }
 
   &--fb {
+    transition-delay: 50ms;
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -268,6 +259,8 @@
   }
 
   &--insta {
+    transition-delay: 100ms;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -280,6 +273,8 @@
   }
 
   &--vk {
+    transition-delay: 150ms;
+
     svg {
       width: 1.7rem;
       height: 1rem;
