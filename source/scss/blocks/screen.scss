@@ -57,9 +57,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  color: $c-dark;
-  background-color: $c-light;
   z-index: 1;
+
+  color: $c-dark;
+
+  background-color: $c-light;
+
+  transform: translateY(0);
+
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0, 1, .7, 1);
+  transition-delay: 0ms;
+  transition-duration: 500ms;
+
+  .page--loading & {
+    transform: translateY(100%);
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
