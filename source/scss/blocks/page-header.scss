@@ -302,9 +302,10 @@
 
     .page:not(.page--loading) &.active {
       &::after {
+        left: 0;
+
         display: block;
         width: 100%;
-        left: 0;
 
         opacity: 1;
       }
