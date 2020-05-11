@@ -95,9 +95,7 @@ module.exports = {
       filename: 'css/style.min.css',
       chunkFilename: "[id].css"
     }),
-    new CssoWebpackPlugin({
-      pluginOutputPostfix: 'min'
-    }),
+    new CssoWebpackPlugin(),
     new CopyPlugin([
       {
         from: "source/fonts/**/*.{woff,woff2}",

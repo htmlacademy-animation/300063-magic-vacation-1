@@ -91,11 +91,24 @@
 }
 
 .slider__item-text {
+  max-width: 34rem;
   margin-top: 3.6rem;
   margin-bottom: 0;
-  max-width: 34rem;
+
   font-size: 1.8rem;
   line-height: 2rem;
+
+  opacity: 0;
+  transform: translateX(15px);
+
+  transition-duration: 500ms;
+  transition-delay: 500ms;
+
+  .screen--story.active .swiper-slide-active &,
+  .screen--story.active .swiper-slide-next & {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
