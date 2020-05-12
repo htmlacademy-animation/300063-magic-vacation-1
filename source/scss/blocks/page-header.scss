@@ -3,8 +3,25 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 2.7rem 0;
   z-index: 10;
+
+  padding: 2.7rem 0;
+
+
+  transition-property: opacity, visibility;
+  transition-timing-function: cubic-bezier(0, 1, .7, 1);
+  transition-duration: 500ms;
+
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0ms, 500ms;
+
+  .loaded & {
+    opacity: 1;
+    visibility: visible;
+
+    transition-delay: 0ms;
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -29,12 +46,22 @@
 .page-header__logo {
   @include hover;
   position: relative;
-  flex: none;
   top: -0.5rem;
+
   display: block;
+  flex: none;
   padding: 1rem 0;
   width: 10rem;
+
   color: $c-light;
+
+  transform: translateX(-15px);
+
+  transition-duration: 500ms;
+
+  .loaded {
+    transform: translateX(0);
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -276,12 +303,12 @@
       }
     }
 
-    &.active {
+    .loaded &.active {
       &::after {
+        left: 0;
+
         display: block;
         width: 100%;
-
-        opacity: 1;
       }
     }
 
