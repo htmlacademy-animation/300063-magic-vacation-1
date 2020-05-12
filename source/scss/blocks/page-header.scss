@@ -7,17 +7,20 @@
 
   padding: 2.7rem 0;
 
-  opacity: 1;
 
   transition-property: opacity, visibility;
   transition-timing-function: cubic-bezier(0, 1, .7, 1);
-  transition-delay: 0ms;
   transition-duration: 500ms;
 
-  .page--loading & {
-    opacity: 0;
-    visibility: hidden;
-    transition-delay: 0ms, 500ms;
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0ms, 500ms;
+
+  .loaded & {
+    opacity: 1;
+    visibility: visible;
+
+    transition-delay: 0ms;
   }
 
   @media (min-width: $stop-scaling) {
@@ -52,12 +55,12 @@
 
   color: $c-light;
 
-  transform: translateX(0);
+  transform: translateX(-15px);
 
   transition-duration: 500ms;
 
-  .page--loading & {
-    transform: translateX(-15px);
+  .loaded {
+    transform: translateX(0);
   }
 
   @media (min-width: $stop-scaling) {
@@ -300,14 +303,12 @@
       }
     }
 
-    .page:not(.page--loading) &.active {
+    .loaded &.active {
       &::after {
         left: 0;
 
         display: block;
         width: 100%;
-
-        opacity: 1;
       }
     }
 

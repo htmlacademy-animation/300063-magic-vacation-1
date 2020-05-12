@@ -1,10 +1,7 @@
 export default () => {
   const loadPageHandler = () => {
-    const page = document.querySelector(`.page`);
-    const isLoadingPage = page.classList.contains(`page--loading`);
-    if (isLoadingPage) {
-      page.classList.remove(`page--loading`);
-    }
+    const page = document.querySelector(`body`);
+    page.classList.add(`loaded`);
   };
   window.addEventListener(`load`, loadPageHandler, {once: true});
 };
