@@ -8,7 +8,8 @@ import chat from './modules/chat.js';
 import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
-import FullPageScroll from './modules/full-page-scroll';
+// import FullPageScroll from './modules/full-page-scroll';
+import {initScreenSwitcher} from './modules/screen-switcher';
 
 // init modules
 loading();
@@ -20,6 +21,6 @@ chat();
 result();
 form();
 social();
-
-const fullPageScroll = new FullPageScroll();
-fullPageScroll.init();
+initScreenSwitcher();
+// const fullPageScroll = new FullPageScroll();
+// fullPageScroll.init();

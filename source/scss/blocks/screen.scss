@@ -57,7 +57,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  //z-index: 1;
 
   color: $c-dark;
 
@@ -67,11 +66,16 @@
 
   transition-property: transform;
   transition-timing-function: cubic-bezier(0, 1, .7, 1);
-  transition-delay: 135ms;
-  transition-duration: 300ms;
 
-  .loaded & {
+  .loaded .screen & {
+    transform: translateY(100%);
+    transition-duration: 170ms;
+  }
+
+  .loaded .screen.active & {
     transform: translateY(0);
+    transition-delay: 135ms;
+    transition-duration: 300ms;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
