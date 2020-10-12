@@ -97,9 +97,10 @@
 
   opacity: 0;
 
-  transform: translateY(15px);
-  transition-duration: 500ms;
-  transition-delay: 500ms;
+  transform: translateY(30px);
+  transition-duration: 535ms;
+  transition-delay: 1270ms;
+  transition-timing-function: ease;
 
   .screen--intro.active & {
     opacity: 1;
@@ -153,6 +154,14 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 350ms;
+  transition-delay: 1870ms;
+
+  .loaded & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;

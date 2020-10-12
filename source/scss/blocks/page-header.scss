@@ -53,13 +53,17 @@
   padding: 1rem 0;
   width: 10rem;
 
+  opacity: 0;
   color: $c-light;
 
   transform: translateX(-15px);
 
-  transition-duration: 500ms;
+  transition-property: opacity, transform;
+  transition-delay: 270ms;
+  transition-duration: 200ms;
 
-  .loaded {
+  .loaded & {
+    opacity: 1;
     transform: translateX(0);
   }
 
@@ -204,6 +208,14 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+  transition-property: opacity;
+  transition-delay: 335ms;
+  transition-duration: 270ms;
+
+  .loaded & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -272,7 +284,7 @@
     color: inherit;
 
     transition-property: color;
-    transition-duration: 300ms;
+    transition-duration: 350ms;
 
     &::after {
       position: absolute;
@@ -300,6 +312,12 @@
         left: 0;
 
         background-color: $c-dark;
+      }
+    }
+
+    &.active {
+      &::after {
+        transition-delay: 0ms, 335ms;
       }
     }
 

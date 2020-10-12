@@ -99,10 +99,17 @@
   line-height: 2rem;
 
   opacity: 0;
-  transform: translateX(15px);
+  transform: translateX(30px);
 
-  transition-duration: 500ms;
-  transition-delay: 500ms;
+  transition-duration: 400ms;
+
+  .screen--story.active .swiper-slide-active & {
+    transition-delay: 335ms;
+  }
+
+  .screen--story.active .swiper-slide-next & {
+    transition-delay: 570ms;
+  }
 
   .screen--story.active .swiper-slide-active &,
   .screen--story.active .swiper-slide-next & {
