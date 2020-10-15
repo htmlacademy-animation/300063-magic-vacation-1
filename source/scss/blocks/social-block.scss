@@ -21,7 +21,7 @@
   border-radius: 50%;
 
   transition-property: color;
-  transition-duration: 300s;
+  transition-duration: 300ms;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -45,7 +45,7 @@
     border-radius: 50%;
 
     transition-property: width, height;
-    transition-duration: 300s;
+    transition-duration: 300ms;
   }
 
   svg {
@@ -83,6 +83,18 @@
   & + .social-block__list li {
     opacity: 0;
     transform: translateY(10px);
+
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+
+    &:nth-of-type(n) {
+      transition-delay: 400ms, 100ms;
+    }
+  }
+
+  & + .social-block__list:hover li {
+    opacity: 1;
+    transform: translateY(0);
 
     transition-property: transform, opacity;
     transition-duration: 300ms;
