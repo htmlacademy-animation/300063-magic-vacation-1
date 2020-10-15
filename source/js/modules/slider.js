@@ -78,7 +78,9 @@ export default () => {
     setSlider();
   });
 
-  sliderContainer.addEventListener(`transitionend`, function () {
-    setSlider();
+  sliderContainer.addEventListener(`transitionend`, function (event) {
+    if (event.propertyName === `width`) {
+      setSlider();
+    }
   });
 };
