@@ -46,6 +46,7 @@
   outline: none;
 
   transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.28, 0.41, 0, 1);
 
   .screen--game.screen--hidden & {
     width: 0;

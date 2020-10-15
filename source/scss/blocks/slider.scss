@@ -3,6 +3,21 @@
   flex-grow: 1;
   width: 100%;
 
+  opacity: 0;
+  transform: scale(0.98);
+
+  transition-property: opacity, transform;
+  transition-duration: 235ms;
+  transition-delay: 0ms;
+
+  .loaded .active & {
+    opacity: 1;
+    transform: scale(1);
+
+    transition-duration: 0ms;
+    transition-delay: 0ms;
+  }
+
   .swiper-wrapper {
     min-height: 100vh;
     box-sizing: border-box;
@@ -99,10 +114,19 @@
   line-height: 2rem;
 
   opacity: 0;
-  transform: translateX(15px);
+  transform: translateX(80px);
 
-  transition-duration: 500ms;
-  transition-delay: 500ms;
+  transition-property: opacity, transform;
+  transition-duration: 400ms;
+  transition-delay: $screen-switching-time;
+
+  .loaded .active .swiper-slide-active & {
+    transition-delay: 500ms;
+  }
+
+  .loaded .active .swiper-slide-next & {
+    transition-delay: 700ms;
+  }
 
   .screen--story.active .swiper-slide-active &,
   .screen--story.active .swiper-slide-next & {
