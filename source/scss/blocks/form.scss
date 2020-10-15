@@ -48,8 +48,10 @@
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.28, 0.41, 0, 1);
 
-  .screen--game.active & {
+  .loaded .active & {
     width: calc(100% - 21rem);
+
+    transition-delay: 500ms;
   }
 
   &:focus {
@@ -63,7 +65,7 @@
     font-size: 24px;
     border-radius: 30px;
 
-    .screen--game.active & {
+    .loaded .active & {
       width: calc(100% - 210px);
     }
   }
@@ -74,13 +76,13 @@
     height: 4rem;
     font-size: 1.6rem;
 
-    .screen--game.active & {
+    .loaded .active & {
       width: calc(100% - 5rem);
     }
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
-    .screen--game.active & {
+    .loaded .active & {
       width: calc(100% - 9rem);
     }
   }
@@ -91,7 +93,7 @@
     height: 4rem;
     font-size: 1.6rem;
 
-    .screen--game.active & {
+    .loaded .active & {
       width: calc(100% - 5rem);
     }
   }

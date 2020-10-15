@@ -8,7 +8,8 @@
   width: 100%;
   min-height: 100vh;
 
-  transition-delay: $screen-switching-time;
+  transition-property: width, min-height, height;
+  transition-delay: 500ms;
 
   &--hidden {
     width: 0;

@@ -78,5 +78,7 @@ export default () => {
     setSlider();
   });
 
-  setSlider();
+  sliderContainer.addEventListener(`transitionend`, function () {
+    setSlider();
+  });
 };

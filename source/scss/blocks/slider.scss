@@ -128,8 +128,8 @@
     transition-delay: 700ms;
   }
 
-  .screen--story.active .swiper-slide-active &,
-  .screen--story.active .swiper-slide-next & {
+  .loaded .active .swiper-slide-active &,
+  .loaded .active .swiper-slide-next & {
     opacity: 1;
     transform: translateX(0);
   }

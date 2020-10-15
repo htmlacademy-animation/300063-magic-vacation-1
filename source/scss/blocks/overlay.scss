@@ -15,7 +15,7 @@
   transition-delay: 200ms;
   transition-timing-function: cubic-bezier(0.28, 0.41, 0, 1);
 
-  .screen.active ~ & {
+  .loaded .screen.active ~ & {
     height: 0;
 
     transition-duration: 0ms;
