@@ -78,9 +78,5 @@ export default () => {
     setSlider();
   });
 
-  sliderContainer.addEventListener(`transitionend`, function (event) {
-    if (event.propertyName === `width`) {
-      setSlider();
-    }
-  });
+  setSlider();
 };

@@ -9,12 +9,13 @@
   min-height: 100vh;
 
   transition-property: width, min-height, height;
-  transition-delay: 500ms;
 
   &--hidden {
     width: 0;
     height: 0;
     min-height: 0;
+
+    transition-delay: 500ms;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -45,6 +46,21 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+
+  &--fade {
+    opacity: 0;
+    transform: scale(0.97);
+
+    transition-property: opacity, transform;
+    transition-duration: 270ms;
+
+    .loaded .active & {
+      opacity: 1;
+      transform: scale(1);
+
+      transition-delay: 500ms;
+    }
+  }
 }
 
 .screen__disclaimer {
@@ -334,13 +350,8 @@
   }
 }
 
-.screen--prizes {
-  background-color: $c-dark;
-}
-
 .screen--game {
   position: relative;
-  background-color: $c-dark;
 
   &::before {
     content: "";
@@ -382,8 +393,4 @@
     opacity: 1;
     pointer-events: auto;
   }
-}
-
-.screen--rules {
-  background-color: $c-dark;
 }
