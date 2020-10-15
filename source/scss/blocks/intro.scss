@@ -50,18 +50,6 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     font-size: 5rem;
   }
-
-  .loaded .screen & {
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 200ms;
-  }
-
-  .loaded .screen.active & {
-    opacity: 1;
-    transition-property: none;
-    transition-duration: 0ms;
-  }
 }
 
 .intro__content {
@@ -84,18 +72,6 @@
   flex: none;
   width: 50rem;
   max-width: 50%;
-
-  .loaded .screen & {
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 200ms;
-  }
-
-  .loaded .screen.active & {
-    opacity: 1;
-    transition-property: none;
-    transition-duration: 0ms;
-  }
 
   @media (min-width: $stop-scaling) {
     width: 500px;
@@ -121,21 +97,13 @@
 
   opacity: 0;
 
-  transform: translateY(0);
-  transition-property: opacity;
-  transition-duration: 200ms;
+  transform: translateY(15px);
+  transition-duration: 500ms;
+  transition-delay: 500ms;
 
-  .screen--hidden & {
-    transform: translateY(30px);
-  }
-
-  .loaded .screen--intro.active & {
+  .screen--intro.active & {
     opacity: 1;
     transform: translateY(0);
-    transition-property: transform, opacity;
-    transition-duration: 535ms;
-    transition-delay: 1270ms;
-    transition-timing-function: ease;
   }
 
   @media (min-width: $stop-scaling) {
@@ -185,18 +153,6 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
-  opacity: 0;
-  transition-property: opacity;
-  transition-duration: 200ms;
-
-  .loaded .screen--intro.active & {
-    opacity: 1;
-    transform: translateY(0);
-    transition-property: opacity;
-    transition-duration: 350ms;
-    transition-delay: 1870ms;
-    transition-timing-function: ease;
-  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;

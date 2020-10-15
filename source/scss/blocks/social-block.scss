@@ -61,7 +61,8 @@
     height: 2.2rem;
   }
 
-  &:hover {
+  &:hover,
+  .social-block--active & {
     color: $c-purple;
 
     &::before {
@@ -91,10 +92,13 @@
   }
 
   &:active,
-  &:focus {
+  &:active:focus {
     color: $c-light;
 
     &::before {
+      width: 100%;
+      height: 100%;
+
       background-color: $c-purple;
       border-color: $c-purple;
     }

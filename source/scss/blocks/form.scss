@@ -45,14 +45,7 @@
   border-radius: 3rem;
   outline: none;
 
-  transition-duration: 350ms;
-
-  &::placeholder {
-    color: $c-purple;
-    opacity: 0;
-    transition-delay: 300ms;
-    transition-duration: 350ms;
-  }
+  transition-duration: 300ms;
 
   .screen--game.screen--hidden & {
     width: 0;
@@ -60,10 +53,6 @@
 
   .screen--game.active & {
     width: calc(100% - 21rem);
-
-    &::placeholder {
-      opacity: 1;
-    }
   }
 
   &:focus {
