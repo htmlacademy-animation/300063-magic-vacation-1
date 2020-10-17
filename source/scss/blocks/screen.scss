@@ -1,5 +1,5 @@
 .screen {
-  position: relative;
+  position: absolute;
   overflow: hidden;
   z-index: 1;
 
@@ -8,10 +8,14 @@
   width: 100%;
   min-height: 100vh;
 
+  transition-property: width, min-height, height;
+
   &--hidden {
     width: 0;
     height: 0;
     min-height: 0;
+
+    transition-delay: 500ms;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -42,6 +46,21 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+
+  &--fade {
+    opacity: 0;
+    transform: scale(0.97);
+
+    transition-property: opacity, transform;
+    transition-duration: 270ms;
+
+    .loaded .active & {
+      opacity: 1;
+      transform: scale(1);
+
+      transition-delay: 500ms;
+    }
+  }
 }
 
 .screen__disclaimer {
@@ -66,12 +85,15 @@
   transform: translateY(100%);
 
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0, 1, .7, 1);
+  transition-timing-function: cubic-bezier(0.28, 0.41, 0, 1);
   transition-delay: 0ms;
-  transition-duration: 500ms;
+  transition-duration: 165ms;
 
-  .loaded & {
+  .loaded .active & {
     transform: translateY(0);
+
+    transition-delay: $screen-switching-time;
+    transition-duration: 300ms;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -328,13 +350,8 @@
   }
 }
 
-.screen--prizes {
-  background-color: $c-dark;
-}
-
 .screen--game {
   position: relative;
-  background-color: $c-dark;
 
   &::before {
     content: "";
@@ -376,8 +393,4 @@
     opacity: 1;
     pointer-events: auto;
   }
-}
-
-.screen--rules {
-  background-color: $c-dark;
 }

@@ -1,7 +1,6 @@
 export default () => {
-  const loadPageHandler = () => {
+  window.addEventListener(`load`, () => {
     const page = document.querySelector(`body`);
     page.classList.add(`loaded`);
-  };
-  window.addEventListener(`load`, loadPageHandler, {once: true});
+  }, {once: true});
 };

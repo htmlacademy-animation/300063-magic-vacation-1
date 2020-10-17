@@ -5,11 +5,6 @@
     .social-block__list {
       pointer-events: auto;
     }
-
-    .social-block__link {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }
 
@@ -26,7 +21,7 @@
   border-radius: 50%;
 
   transition-property: color;
-  transition-duration: .3s;
+  transition-duration: 300ms;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -50,7 +45,7 @@
     border-radius: 50%;
 
     transition-property: width, height;
-    transition-duration: .3s;
+    transition-duration: 300ms;
   }
 
   svg {
@@ -85,10 +80,46 @@
     }
   }
 
+  & + .social-block__list li {
+    opacity: 0;
+    transform: translateY(10px);
+
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+
+    &:nth-of-type(n) {
+      transition-delay: 400ms, 100ms;
+    }
+  }
+
+  & + .social-block__list:hover li {
+    opacity: 1;
+    transform: translateY(0);
+
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+
+    &:nth-of-type(n) {
+      transition-delay: 400ms, 100ms;
+    }
+  }
+
   &:hover + .social-block__list li,
   &:focus + .social-block__list li {
     opacity: 1;
     transform: translateY(0);
+
+    &:first-of-type {
+      transition-delay: 100ms;
+    }
+
+    &:nth-of-type(2) {
+      transition-delay: 200ms;
+    }
+
+    &:nth-of-type(3) {
+      transition-delay: 300ms;
+    }
   }
 
   &:active,
@@ -162,10 +193,6 @@
     opacity: 1;
     pointer-events: auto;
 
-    & li {
-      transform: translateY(0);
-      opacity: 1;
-    }
   }
 
   &:focus-within {
@@ -182,12 +209,6 @@
     flex: none;
     margin-bottom: 0.5rem;
 
-    opacity: 0;
-    transform: translateY(10px);
-
-    transition-property: transform, opacity;
-    transition-duration: 300ms;
-
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
     }
@@ -198,18 +219,6 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       margin: 0 1.25rem;
-    }
-
-    &:first-of-type {
-      transition-delay: 50ms;
-    }
-
-    &:nth-of-type(2) {
-      transition-delay: 100ms;
-    }
-
-    &:nth-of-type(3) {
-      transition-delay: 150ms;
     }
   }
 }
@@ -228,7 +237,7 @@
   border-radius: 50%;
 
   transition-property: color, background-color, border-color;
-  transition-duration: 300ms, 500ms, 300ms;
+  transition-duration: 200ms, 500ms, 300ms;
 
   @media (min-width: $stop-scaling) {
     width: 40px;

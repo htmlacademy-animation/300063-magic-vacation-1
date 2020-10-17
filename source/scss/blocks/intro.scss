@@ -6,6 +6,22 @@
   padding: 15.5rem 0 10rem;
   width: 100%;
 
+  opacity: 0;
+  transform: scale(1.01);
+
+  transition-property: transform, opacity;
+  transition-duration: 300ms;
+  transition-delay: 0ms;
+  transition-timing-function: cubic-bezier(0.28, 0.41, 0, 1);
+
+  .loaded .active & {
+    opacity: 1;
+    transform: scale(1);
+
+    transition-property: opacity;
+    transition-duration: 0ms;
+  }
+
   @media (min-width: $stop-scaling) {
     padding: 155px 0 100px;
   }
@@ -96,14 +112,17 @@
   line-height: 1.27;
 
   opacity: 0;
-
   transform: translateY(15px);
-  transition-duration: 500ms;
-  transition-delay: 500ms;
 
-  .screen--intro.active & {
+  transition-delay: $screen-switching-time;
+  transition-timing-function: cubic-bezier(0.28, 0.41, 0, 1);
+
+  .loaded .active & {
     opacity: 1;
     transform: translateY(0);
+
+    transition-duration: 400ms;
+    transition-delay: 1135ms;
   }
 
   @media (min-width: $stop-scaling) {
@@ -153,6 +172,17 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+
+  opacity: 0;
+
+  transition-delay: $screen-switching-time;
+
+  .loaded .active & {
+    opacity: 1;
+
+    transition-duration: 370ms;
+    transition-delay: 1735ms;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;
