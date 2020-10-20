@@ -13,13 +13,13 @@ class AccentTypographyBuild {
     this._prepareText();
   }
 
-  run() {
+  run(delay = DEFAULT_TIMER) {
     if (!this._element) {
       return;
     }
     setTimeout(() => {
       this._element.classList.add(this._classForActivate);
-    }, this._timer);
+    }, delay);
   }
 
   cancel() {
@@ -33,15 +33,15 @@ class AccentTypographyBuild {
       selector,
       classForActivate,
       property,
+      classForWordContainer,
       duration = DEFAULT_DURATION,
-      timer = DEFAULT_TIMER,
       delayIncrement = DEFAULT_DELAY_INCREMENT,
     } = params;
     this._elementSelector = selector;
+    this._classForWordContainer = classForWordContainer;
     this._classForActivate = classForActivate;
     this._property = property;
     this._duration = duration;
-    this._timer = timer;
     this._delayIncrement = delayIncrement;
     this._element = document.querySelector(this._elementSelector);
     this._delay = 0;
@@ -55,7 +55,7 @@ class AccentTypographyBuild {
     const content = text.reduce((parentFragment, word) => {
       const wordElement = this._getWordFragmentContainer(word);
       const wordContainer = document.createElement(`span`);
-      wordContainer.classList.add(`text__word`);
+      wordContainer.classList.add(this._classForWordContainer);
       const textNode = document.createTextNode(` `);
       wordContainer.appendChild(wordElement);
       wordContainer.appendChild(textNode);
