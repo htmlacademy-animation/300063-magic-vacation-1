@@ -23,7 +23,7 @@ export default class FullPageScroll {
     const currentPosition = this.activeScreen;
     this.reCalculateActiveScreenPosition(evt.deltaY);
     if (currentPosition !== this.activeScreen) {
-      this.changePageDisplay();
+      window.location.hash = this.screenElements[this.activeScreen].id;
     }
   }
 
