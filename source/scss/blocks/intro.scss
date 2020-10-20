@@ -41,12 +41,11 @@
 
 .intro__title {
   margin: 0;
-  max-width: 99rem;
   text-transform: uppercase;
   font-family: $font-alt;
   font-weight: 400;
   font-size: 12rem;
-  line-height: 0.906;
+  line-height: 1;
   letter-spacing: -0.04em;
 
   @media (min-width: $stop-scaling) {
@@ -65,6 +64,22 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     font-size: 5rem;
+  }
+
+  &-word {
+    display: inline-block;
+    vertical-align: bottom;
+    overflow: hidden;
+    white-space: nowrap;
+
+    & > span {
+      display: inline-block;
+      transform: translate3d(0, 1.3em, 0);
+    }
+  }
+
+  &.active &-word > span {
+    transform: translate3d(0, .19em, 0);
   }
 }
 
