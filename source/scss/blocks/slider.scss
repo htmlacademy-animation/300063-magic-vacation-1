@@ -169,8 +169,18 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
-  width: 17rem;
+  width: 34rem;
   z-index: 1;
+
+  opacity: 0;
+  transition-delay: 500ms;
+
+  .active & {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 500ms;
+    transition-delay: 1400ms;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
@@ -192,6 +202,24 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+
+  .active & {
+    animation-name: rolling-button;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms;
+    animation-timing-function: cubic-bezier(0.7, -0.4, 0.3, 1.4);
+    animation-fill-mode: both;
+  }
+
+  &--prev {
+    animation-direction: reverse;
+    transform: translateX(8rem) rotate(0deg);
+  }
+
+  &--next {
+    animation-direction: normal;
+    transform: translateX(-8rem) rotate(0deg);
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -259,10 +287,7 @@
 }
 
 .slider__pagination.swiper-pagination {
-  position: absolute;
-  bottom: 2.8rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
   width: 9rem;
   height: 4rem;
   text-align: center;
@@ -270,6 +295,7 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  transform: translateY(.14em);
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
@@ -311,5 +337,15 @@
       height: 0.4rem;
       background-color: $c-light;
     }
+  }
+}
+
+@keyframes rolling-button {
+  0% {
+    transform: translateX(8rem) rotate(360deg) ;
+  }
+
+  100% {
+    transform: translateX(-8rem) rotate(0deg) ;
   }
 }
