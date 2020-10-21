@@ -10488,29 +10488,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const TITLE_ANIMATION_DELAY = 500;
+const DATE_ANIMATION_DELAY = 1500;
 const TITLE_LETTER_ANIMATION_DURATION = 500;
-const TITLE_DELAY_INCREMENT = 50;
+const LETTER_DELAY_INCREMENT = 50;
 
 /* harmony default export */ __webpack_exports__["default"] = (() => {
-  const accentTypographyBuild = new _accent_typography_build__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  const titleTypography = new _accent_typography_build__WEBPACK_IMPORTED_MODULE_0__["default"]({
     selector: `.intro__title`,
     classForWordContainer: `intro__title-word`,
     classForActivate: `active`,
     property: `transform`,
     duration: TITLE_LETTER_ANIMATION_DURATION,
-    delayIncrement: TITLE_DELAY_INCREMENT,
+    delayIncrement: LETTER_DELAY_INCREMENT,
+  });
+
+  const dateTypography = new _accent_typography_build__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    selector: `.intro__date`,
+    classForWordContainer: `intro__date-word`,
+    classForActivate: `active`,
+    property: `transform`,
+    duration: TITLE_LETTER_ANIMATION_DURATION,
+    delayIncrement: LETTER_DELAY_INCREMENT,
   });
 
   const showTitle = () => {
     const hash = window.location.hash.slice(1);
     if (hash === `top`) {
-      accentTypographyBuild.run(TITLE_ANIMATION_DELAY);
+      titleTypography.run(TITLE_ANIMATION_DELAY);
+      dateTypography.run(DATE_ANIMATION_DELAY);
     }
   };
   window.addEventListener(`hashchange`, (event) => {
     const oldHash = event.oldURL.split(`#`).pop();
     if (oldHash === `top`) {
-      accentTypographyBuild.cancel();
+      titleTypography.cancel();
+      dateTypography.cancel();
     }
     showTitle();
   });
